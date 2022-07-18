@@ -27,7 +27,7 @@ export default function Navbar() {
         <div>
             <div className={style.largeContainer}>
                 <div className={style.navLogo}>
-                    <Image src={logo}/>
+                    <Image src={logo} alt=''/>
                 </div>
                 <div className={style.links}>
                     <div className={style.li}>
@@ -47,7 +47,7 @@ export default function Navbar() {
             <div className={style.smallContainer}>    
                 <div className={style.navContainer}>
                     <div className={style.navLogo}>
-                        <Image src={logo}/>
+                        <Image src={logo} alt=''/>
                     </div>
                     <div className={style.navBtn} onClick={handleClick}>
                         <a>{isOpen==true?close:hamburger }</a>

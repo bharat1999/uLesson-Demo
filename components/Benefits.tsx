@@ -50,7 +50,7 @@ export default function Benefits() {
                 }
             </div>
             <div className={style.subheading}>
-                <Image src={award}/>
+                <Image src={award} alt=''/>
                 <span>The top 3 winning schools in each category will get an award</span>
             </div>
         </div>

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 
 import { ChangeEvent, JSXElementConstructor, ReactElement, ReactFragment, useEffect, useState } from 'react'
 import style from './Manual.module.scss'
@@ -5,7 +6,7 @@ import StudentRegisterCard from './StudentRegisterCard';
 
 export default function Manual() {
     const [student,setStudent] = useState(0);
-    const [studentCard,setStudentCard] = useState([])
+    const [studentCard,setStudentCard] = useState([<StudentRegisterCard number='1'/>])
     useEffect(()=> 
         setStudent(0),[])
     function handleChange(e: ChangeEvent<HTMLInputElement>)
@@ -21,7 +22,7 @@ export default function Manual() {
         if(student==0)
         {
             setStudentCard([])
-            return
+            return;
         }
         var rows:JSX.Element[] = []
         for(var i=1;i<=student;i++)

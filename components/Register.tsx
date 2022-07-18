@@ -25,7 +25,7 @@ function Card(props:card)
                 <button className={style.btn} onClick={()=> router.push(props.route)}>Register Now</button>
             </div>
             <div className={style.img}>
-                <Image src = {props.src}/>
+                <Image src = {props.src} alt=''/>
             </div>
         </div>
     )
