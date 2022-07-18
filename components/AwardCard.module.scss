@@ -1,0 +1,55 @@
+@import '../styles/app.scss';
+
+.card {
+    width: 282px;
+    height: 138px;
+    background-color: #ffff;
+    border-radius: 4px;
+    padding-left: 26px;
+}
+
+.row1 {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+.first {
+    color: #68BC98;
+}
+
+.second {
+    color: #7B7FDA;
+}
+
+.third {
+    color: #F9AD6D;
+}
+
+.fourth {
+    color: #301446;
+}
+
+.first,.second,.third,.fourth {
+    font-family: $font-1;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.imgs {
+    display: inline;
+    position: relative;
+    top:-50px;
+}
+
+.row2 {
+    margin-top: -60px;
+}
+
+.prize {
+    font-family: $font-1;
+    font-weight: 600;
+    font-size: 32px;
+    color: #301446;
+}

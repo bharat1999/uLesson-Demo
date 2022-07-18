@@ -1,0 +1,94 @@
+@import '../styles/app.scss';
+
+.mainContainer {
+    color:$black;
+    width: 980px;
+    margin: 46px auto 141px;
+}
+
+.container {
+    margin-top: 72px;
+}
+
+.heading {
+    font-family: $font-1;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: -.06em;
+}
+
+.formContainer {
+    margin-top: 48px;
+}
+
+.row {
+    display: flex;
+    gap:26px;
+    margin-bottom: 24px;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input {
+    box-sizing: border-box;
+    width:486px            ;
+    height: 40px;
+    background: #F9FAFF;
+    border: 1px solid #E0E7FF;
+    border-radius: 4px;
+    font-family: $font-2;
+    font-weight: 600;
+    font-size: 14px;
+    opacity: .7;
+    letter-spacing: -.01em;
+}
+
+.principal {
+    width: 996px;
+}
+
+.labelText {
+    font-family: $font-2;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    opacity: 0.7;
+}
+
+.radioGroup {
+    display: flex;
+    gap:120px;
+}
+
+.radio {
+    font-family: $font-2;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    opacity: 0.7;
+}
+
+.btnContainer {
+    margin-top: 90px;
+    display: flex;
+    position: relative;
+    right: -20px;
+    justify-content: flex-end;
+}
+
+.btn {
+    font-family: $font-2;
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: $orange;
+    height: 56px;
+    width: 128px;
+    padding: 18px 32px;
+    color:#FFFFFF;
+    border:none
+}

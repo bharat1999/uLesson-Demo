@@ -1,0 +1,77 @@
+@import '../styles/app.scss';
+
+.largeContainer {
+    padding-top: 42px;
+    padding-left: 120px;
+    padding-right: 120px;
+    background-color: #301446;
+    display: flex;
+    justify-content: space-between;
+}
+
+.smallContainer {
+    display: none;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    align-items: center;
+}
+
+.li {
+    font-family: $font-2;
+    font-weight: 700;
+    font-size: 13px;
+    color: #ffffff;
+    opacity: .5;
+}
+
+.btn {
+    width: 180px;
+    height: 50px;
+    background-color: #EA7052;
+    border-radius: 10px;
+    font-family: $font-2;
+    font-weight: 700;
+    font-size: 13px;
+    color:#ffffff;
+    border:none;
+}
+
+.hide {
+    display: none;
+}
+
+@media only screen and (max-width:767px) {
+    .largeContainer {
+        display: none;
+    }
+    .smallContainer {
+        display: inline;
+    }
+    .navContainer {
+        padding-top: 37px;
+        padding-left: 32px;
+        padding-right: 32px;
+        background-color: #301446;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .show{ 
+        background-color: #301446;
+    }
+
+    .links {
+        padding-top: 40px;
+        flex-direction: column;
+        height: 100vw;
+    }
+
+    .li {
+        font-size: 20px;
+    }
+    
+}

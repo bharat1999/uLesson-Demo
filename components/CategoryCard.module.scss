@@ -1,0 +1,51 @@
+@import '../styles/app.scss';
+
+.junior,.senior {
+    width: 297px;
+    font-family: $font-2;
+}
+
+.junior {
+    .heading {
+        display: none;
+    }
+    .subjects {
+        height: 274px;
+        justify-content: flex-start;
+    }
+}
+
+.heading {
+    font-weight: 700;
+    font-size: 18px;
+    background-color: #F2F2FB;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    text-align: center;
+    border: 1px solid rgba(48, 20, 70, 0.05);
+}
+
+.subjects {
+    color: rgba(48, 20, 70, 0.7);
+    height: 226px;
+    padding-top: 16px;
+    padding-bottom: 24px;
+    font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(48, 20, 70, 0.05);
+}
+
+@media  only  screen and (max-width:1360px) {
+    .junior {
+        height: 174px;
+        
+    }
+    .senior,.junior {
+        width: 282px;
+    }
+}

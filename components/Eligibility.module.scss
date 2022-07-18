@@ -1,0 +1,43 @@
+@import '../styles/app.scss';
+
+.container {
+    width: 383px;
+    box-sizing: border-box;
+    padding: 33px 25px 75px;
+    background-color: #F2F2FB;
+    border: 2px solid rgba(48, 20, 70, 0.05);
+    border-right: none;
+    border-radius: 8px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius:0 ;
+}
+
+.heading {
+    color: #301446;
+    font-family: $font-1;
+    font-weight: 600;
+    font-size: 48px;
+    margin-bottom: 36px;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+@media only screen and (max-width:1360px) {
+
+    .container {
+        width: 328px;
+        border-right:2px solid rgba(48, 20, 70, 0.05);
+        border-bottom: none;
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 0;
+     }
+
+     .heading {
+        font-size: 32px;
+     }
+   
+}

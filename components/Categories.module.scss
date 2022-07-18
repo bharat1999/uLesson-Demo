@@ -1,0 +1,133 @@
+@import '../styles/app.scss';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+
+.heading {
+    text-align: center;
+    font-family: $font-1;
+    font-weight: 600;
+    font-size: 48px;
+    margin-top: 112px;
+    color: #301446;
+}
+
+.categories {
+    margin-top: 54px;
+    display: flex;
+    gap: 24px;
+}
+
+.juniorHeading {
+    color:#ffff;
+    background-color: #7B7FDA;
+    font-family: $font-1;
+    font-size: 24px;
+    font-weight: 600;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    p {
+        margin: 0;
+    }
+}
+
+.senior {
+    width: 890px;
+}
+
+.seniorHeading {
+    color:#ffff;
+    font-family: $font-1;
+    font-size: 24px;
+    font-weight: 600;
+    background-color: #68BC98;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    p {
+        margin: 0;
+    }
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    display: none;
+}
+
+.eligibilityAndRules {
+    margin-top: 76px;
+    display: flex;
+    margin-bottom: 112px;
+}
+
+
+@media only screen and (max-width:1360px) {
+    
+    .heading {
+        font-size: 32px;
+    }
+
+    .categories {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .junior {
+        width: 282px;
+    }
+
+    .row {
+        display: none;
+    }
+
+    .col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .seniorHeading {
+        display: none;
+    }
+
+    .seniorHeadingMobile {
+        color:#ffff;
+        font-family: $font-1;
+        font-size: 24px;
+        font-weight: 600;
+        background-color: #68BC98;
+        padding-top: 23px;
+        padding-bottom: 23px;
+        text-align: center;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        width: 282px;
+        p {
+            margin: 0;
+        }
+    }
+
+    .eligibilityAndRules {
+        margin-top: 61px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 76px;
+       
+    }
+}

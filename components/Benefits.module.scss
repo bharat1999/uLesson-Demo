@@ -1,0 +1,64 @@
+@import '../styles/app.scss';
+
+.container {
+    position: relative;
+    background-color:#F2F2FB;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.heading {
+    font-family: $font-1;
+    font-weight: 600;
+    font-size: 48px;
+    color: #301446;
+    padding: 0;
+    margin: 120px auto 80px;
+    p {
+        margin: 0;
+    }
+}
+
+.awards
+{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 24px;
+}
+
+.subheading {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 128px;
+    span {
+        font-family: $font-1;
+        font-weight: 600;
+        font-size: 24px;
+        color: #301446;
+    }
+}
+
+@media only screen and (max-width:1265px) {
+    .awards {
+        flex-direction: column;
+        row-gap: 81px;
+    }
+
+    .heading {
+        font-size: 32px;
+    }
+
+    .subheading {
+        margin-bottom: 55px;
+        span {
+            font-size: 16px;
+        }
+    }
+    
+}

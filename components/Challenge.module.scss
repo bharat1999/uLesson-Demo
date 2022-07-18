@@ -1,0 +1,28 @@
+@import '../styles/app.scss';
+
+.container {
+    background-color: #F2F2FB;
+    color:$black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    padding-top:112px;
+    padding-bottom: 112px;
+}
+
+.heading {
+    font-family: $font-1;
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: -6%;
+}
+
+
+
+@media only screen and (max-width:1024px) {
+    .heading {
+        font-size: 32px;
+    }
+}

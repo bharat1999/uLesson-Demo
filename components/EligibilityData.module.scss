@@ -1,0 +1,16 @@
+@import '../styles/app.scss';
+
+.heading {
+    font-family: $font-1;
+    font-weight: 600;
+    font-size: 24px;
+    color: #301446;
+}
+
+.data {
+    color:#301446;
+    font-family: $font-2;
+    font-weight: 600;
+    font-size: 16px;
+    opacity: 0.7;
+}

@@ -1,0 +1,71 @@
+@import '../styles/app.scss';
+
+
+.container {
+    margin-top: 112px;
+    margin-bottom: 112px;
+    display: flex;
+    justify-content: center;
+    color: $black;
+    gap: 25px;
+}
+
+
+.cardContainer {
+    width: 588px;
+    height: 284px;
+    background: #F2F2FB;
+    border-radius: 8px;
+    display: flex;
+    padding-left: 44px;
+    padding-right: 35px;
+    gap:83px;
+    align-items: center;
+}
+
+.cardText {
+    font-family: $font-1;
+    font-weight: 600;
+    font-size: 32px;
+    letter-spacing: -6%;
+}
+
+.btn {
+    margin-top: 24px;
+    font-family: $font-2;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: .4px;
+    border:none;
+    border-radius: 10px;
+    background-color: $orange;
+    height: 56px;
+    width: 210px;
+    color:#FFFFFF
+}
+
+@media only screen and (max-width:1365px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .cardContainer {
+        justify-content: center;
+        width: 328px;
+        height: 202px;
+        padding-left: 24px;
+        padding-right: 24px;
+        gap: 13px;
+    }
+
+    .cardText {
+        font-size: 24px;
+    }
+
+    .btn {
+        width: 136px;
+        height: 36px;
+        font-size: 13px;
+    }
+    
+}
