@@ -35,7 +35,7 @@ function Card(props:card)
 export default function Register() {
     
     return (
-        <div className={style.container}>
+        <div id='register' className={style.container}>
             <Card text='Register as a Student' src={student} route='/studentRegister'/>
             <Card text='Register as a School' src={school}  route='/schoolRegister'/>
         </div>

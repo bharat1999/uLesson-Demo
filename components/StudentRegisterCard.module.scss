@@ -46,3 +46,24 @@
     opacity: .7;
     letter-spacing: -.01em;
 }
+
+@media only screen and (max-width:1100px) {
+    .mainContainer {
+        width: 90%;
+    }
+    .row {
+        flex-direction: column;
+    }
+    .input {
+        width: 90vw;
+    }
+    .btnContainer {
+        justify-content: flex-start;
+        margin: 0;
+        left: -10px;
+    }
+
+    .space {
+        width: 33px;
+    }
+}

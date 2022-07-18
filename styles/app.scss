@@ -4,3 +4,30 @@ $font-1:'Montserrat', sans-serif;
 $font-2:'Mulish', sans-serif;
 $orange:#EA7052;
 $black:#301446;
+
+.heading {
+    font-family: $font-1;
+    font-weight: 600;
+    letter-spacing: -.06em;
+}
+
+.subheading {
+    font-family: $font-2;
+    font-weight: 600;
+    letter-spacing: -.01em;
+}
+
+
+.input {
+    box-sizing: border-box;
+    background: #F9FAFF;
+    border: 1px solid #E0E7FF;
+    border-radius: 4px;
+    font-family: $font-2;
+    font-weight: 600;
+    letter-spacing: -.01em;
+}
+
+.row {
+    display: flex;
+}

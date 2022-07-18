@@ -6,6 +6,8 @@ import RegistrationRules from '../components/RegistrationRules'
 import RegistrationTop from '../components/RegistrationTop'
 import Manual from '../components/Manual'
 import Bulk from '../components/Bulk'
+import Router, { useRouter } from 'next/router'
+
 
 const data = {
     heading:'uLesson Challenge Registration (Schools)',
@@ -30,6 +32,7 @@ export default function SchoolRegister() {
         }
 
         useEffect(()=> setUploadType('manual'),[])
+        const router = useRouter()
     return (
         
         <div className={style.mainContainer}>
@@ -80,20 +83,21 @@ export default function SchoolRegister() {
                         Student Details
                     </div>
                     <div className={style.formContainer}>
-                            <div className={style.row}>
-                                <div className={style.col}>
-                                    <label htmlFor="input Option" className={style.labelText}>How do you want to add your candidates?</label>
-                                    <div className={style.radioGroup} >
-                                        <input className={style.radio} onChange={handleClick} type="radio" value="Manual" name="upload option" checked={uploadType=='manual'} /> Manually
-                                        <input className={style.radio} onChange={handleClick} type="radio" value="bulk" name="upload option" checked={uploadType=='bulk'}/> Bulk upload student details 
-                                    </div>
+                        <div className={style.row}>
+                            <div className={style.col}>
+                                <label htmlFor="input Option" className={style.labelText}>How do you want to add your candidates?</label>
+                                <div className={style.radioGroup} >
+                                    <input className={style.radio} onChange={handleClick} type="radio" value="Manual" name="upload option" checked={uploadType=='manual'} /> Manually
+                                    <div className={style.space}></div>
+                                    <input className={style.radio} onChange={handleClick} type="radio" value="bulk" name="upload option" checked={uploadType=='bulk'}/> Bulk upload student details 
                                 </div>
                             </div>
-                            {uploadType=='manual'?<Manual/>:<Bulk/>}
+                        </div>
+                        {uploadType=='manual'?<Manual/>:<Bulk/>}
                     </div>
             </div>
             <div className={style.btnContainer}>
-                <button type='button' className={style.btn} onClick={()=>{console.log("clicked")}}>Submit</button>
+                <button type='button' className={style.btn} onClick={()=> router.push('/successfulSchool')}>Submit</button>
             </div>
         </div>
     )

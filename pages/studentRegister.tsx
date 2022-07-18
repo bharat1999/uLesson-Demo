@@ -3,6 +3,7 @@
 import style from './studentRegister.module.scss'
 import RegistrationRules from '../components/RegistrationRules'
 import RegistrationTop from '../components/RegistrationTop'
+import Router, { useRouter } from 'next/router'
 
 const data = {
     heading:'uLesson Challenge Registration (Student)',
@@ -13,13 +14,14 @@ const data = {
         'Review and submit your details.']
 }
 
-export default function studentRegister() {
+export default function StudentRegister() {
+    const router = useRouter()
     return (
         <div className={style.mainContainer}>
             <RegistrationTop/>
             <RegistrationRules heading={data.heading} data={data.data}/>
             <div className={style.container}>
-                    <div className={style.studentHeading}>
+                    <div className={style.heading}>
                         Student Details
                     </div>
                     <div className={style.formContainer}>
@@ -68,7 +70,7 @@ export default function studentRegister() {
                     </div>
             </div>
             <div className={style.container}>
-                    <div className={style.studentHeading}>
+                    <div className={style.heading}>
                         School Details
                     </div>
                     <div className={style.formContainer}>
@@ -110,7 +112,7 @@ export default function studentRegister() {
                     </div>
             </div>
             <div className={style.btnContainer}>
-                <button type='button' className={style.btn} onClick={()=>{console.log("clicked")}}>Submit</button>
+                <button type='button' className={style.btn} onClick={()=> router.push('/successfulStudent')}>Submit</button>
             </div>
         </div>
     )

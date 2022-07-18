@@ -1,0 +1,86 @@
+@import '../styles/app.scss';
+
+
+.container {
+    margin: 46px 222px 101px;
+}
+
+.data {
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+
+.subheading {
+    opacity: .7;
+    font-size: 20px;
+    text-align: center;
+}
+
+// Link
+
+.heading {
+    font-size: 20px;
+}
+
+.box {
+    background: #FFFFFF;
+    border: 1px solid #E0E7FF;
+    border-radius: 4px 0px 0px 4px;
+    width: 281px;
+    padding-top: 17px;
+    padding-left: 25px;
+}
+
+
+
+.input {
+    padding: 17px 61px;
+    a {
+        color:#2640C9;
+        word-wrap: break-word;
+    }
+}
+
+@media only screen and (max-width:1023px) {
+    .container {
+        margin: 40px auto 156px;
+        width: 90%;
+    }
+
+    .data {
+        width: 100%;
+    }
+
+    .subheading {
+        font-size: 16px;
+    }
+
+    
+
+    // Link 
+
+    .row {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .box{
+        width: 100%;
+        text-align: center;
+        padding:8px 0; 
+    }
+
+    .heading {
+        font-size: 14px;
+    } 
+
+    .input {
+        padding: 9px 10px;
+        text-align: center;
+    }
+    
+}

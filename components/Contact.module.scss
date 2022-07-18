@@ -1,0 +1,121 @@
+@import '../styles/app.scss';
+
+
+.container {
+    height: 441px;
+    background-color: #301446;
+    color: #FFFFFF;
+    padding-left: 122px;
+    padding-right: 122px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heading {
+    font-family: $font-1;
+    font-weight: 600;
+    font-size: 48px;
+}
+
+.subheading {
+    font-family: $font-2;
+    font-weight: 600;
+    font-size: 24px;
+    width: 497px;
+}
+
+.contacts {
+    margin-top: 58px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+// Contact Point Card
+
+.contactContainer {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    p {
+        margin: 0;
+    }
+}
+
+.contactData {
+    font-family: $font-1;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+
+// Footer
+
+.footerContainer {
+    color:$black;
+    padding-top: 59px;
+    padding-bottom: 58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.footer{
+    width: 80%;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footerLinks {
+    display: flex;
+    font-family: $font-2;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: -1%;
+    opacity: .7;
+    gap: 40px;
+}
+
+.footerSocial {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.footerTextContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 80%;
+    margin: 80px auto 58px; 
+}
+
+.footerText {
+    font-family: $font-2;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: -1%;
+    opacity: .3;
+}
+
+@media only screen and (max-width:1023px) {
+
+    .container {
+        justify-content: center;
+    }
+    .img {
+        display: none;
+    }
+    .subheading {
+        width: 100%;
+    }
+    .footerContainer {
+        display: none;
+    }
+    
+}

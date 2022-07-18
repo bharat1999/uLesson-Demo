@@ -13,9 +13,12 @@ export default function Landing() {
                     <div className={style.subheading}>
                     Represent your school in the uLesson competition and win amazing prizes
                     </div>
-                    <button className={style.btn} type='button'>
+                    <a href="#register">
+                    <button className={style.btn}>
                         Register Now
                     </button>
+                    </a>
+                    
                 </div>    
                 <div className={style.image}>
                     <Image className={style.imgs} src={avater} alt="avatar"/>

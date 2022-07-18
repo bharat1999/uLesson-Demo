@@ -5,6 +5,8 @@ import Benefits from '../components/Benefits'
 import Categories from '../components/Categories'
 import Challenge from '../components/Challenge'
 import Register from '../components/Register'
+import FAQ from '../components/FAQ'
+import Contact from '../components/Contact'
 
 const Home: NextPage = () => {
   return (
@@ -15,6 +17,8 @@ const Home: NextPage = () => {
       <Categories/>
       <Challenge/>
       <Register/>
+      <FAQ/>
+      <Contact/>
     </div>
   )
 }

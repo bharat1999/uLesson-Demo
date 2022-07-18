@@ -1,0 +1,97 @@
+@import '../styles/app.scss';
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading {
+    text-align: center;
+    font-family: $font-1;
+    font-weight: 600;
+    font-size: 48px;
+    letter-spacing: -6%;
+    margin-top: 112px;
+}
+
+
+
+.faqContainer {
+    margin-top: 123px;
+    width: 996px;
+    padding: 40px 40px 60px;
+    margin-bottom: 172px;
+}
+
+// Card CSS
+
+.cardContainer {
+    margin-top: 40px;
+    border-bottom: 1px solid #D9DBE9;
+    padding-bottom: 30px;
+}
+
+.noBorder {
+    border: none;
+}
+
+.hide{
+    display: none;
+}
+
+.show {
+    display: flex;
+}
+
+
+.question {
+    display: flex;
+    justify-content: space-between;
+}
+
+.questionText {
+    font-family: $font-1;
+    font-weight: 600;
+    font-size: 20px;
+    color: #170F49;;
+}
+
+.open {
+    font-family: $font-1;
+    font-weight: 600;
+    font-size: 20px;
+    color: #7B7FDA;
+}
+
+.ans {
+    margin-top: 12px;
+    margin-right: 44px;
+    font-family: $font-2;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: -1%;
+    opacity: .7;
+}
+
+
+@media only screen and (max-width:1023px) {
+    
+    .heading {
+        font-size: 32px;
+        margin-top: 64px;
+    }
+
+    .faqContainer {
+        width: 90%;
+        margin-top: 64px;
+        margin-bottom: 35px;
+    }
+
+    .questionText {
+        margin-right: 31px;
+    }
+    
+}
