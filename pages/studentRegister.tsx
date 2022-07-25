@@ -22,7 +22,7 @@ export default function StudentRegister() {
     return (
         <div className={(modalOpen==true?style.dark:'')}>
         <div className={style.mainContainer}>
-            <RegistrationTop modalOpen={modalOpen} onChange={val=>setModalOpen(val)}/>
+            <RegistrationTop modalOpen={modalOpen} onChange={val=>setModalOpen(val)} heading='Are you sure you want to cancel your registration?' subheading='Kindly confirm if you want to cancel the registration process.' btnText='Back to Registration'/>
             <RegistrationRules heading={data.heading} data={data.data}/>
             <div className={style.container}>
                     <div className={style.heading}>

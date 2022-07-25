@@ -7,6 +7,9 @@ import Modal from './Modal'
 interface state {
     onChange:(arg0:boolean)=>void,
     modalOpen:any,
+    heading:string,
+    subheading:string,
+    btnText:string
 }
 
 
@@ -26,7 +29,7 @@ export default function RegistrationTop(props:state){
             </svg>                                                                                                            
         </a>
     </div>
-    {props.modalOpen && <Modal setOpenModal={props.onChange}/>}
+    {props.modalOpen && <Modal setOpenModal={props.onChange} heading={props.heading} subheading={props.subheading} btnText={props.btnText}/>}
 
     </div>
      )
