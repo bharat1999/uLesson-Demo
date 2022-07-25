@@ -6,7 +6,7 @@ import third from '../public/img/3.png'
 import fourth from '../public/img/4.png'
 import award from '../public/img/award.png'
 import Image from 'next/image'
-
+import SchoolsStudents from './Schools&Student'
 
 
 export default function Benefits() {
@@ -38,6 +38,7 @@ export default function Benefits() {
     ];
     return (
         <div className={style.container}>
+            <SchoolsStudents/>
             <div className={style.heading}>
                 <p>Benefits and Awards</p>
             </div>

@@ -24,21 +24,21 @@ export default function Navbar() {
     }
 
     return (
-        <div>
+        <div className={style.container}>
             <div className={style.largeContainer}>
                 <div className={style.navLogo}>
                     <Image src={logo} alt=''/>
                 </div>
                 <div className={style.links}>
-                    <div className={style.li}>
-                        uLesson Competition
-                    </div>
-                    <div className={style.li}>
+                    <a className={style.li}>
+                        Schools Challenge
+                    </a>
+                    <a className={style.li}>
                         Learning Bundle
-                    </div>
-                    <div className={style.li}>
+                    </a>
+                    <a className={style.li}>
                         Coding School 
-                    </div>
+                    </a>
                     <button className={style.btn} type='button'>
                         TRY IT NOW
                     </button>
@@ -57,7 +57,7 @@ export default function Navbar() {
                 <div className={isOpen==true?style.show:style.hide}>
                     <div className={style.links}>
                         <div className={style.li}>
-                            uLesson Competition
+                            Schools Challenge
                         </div>
                         <div className={style.li}>
                             Learning Bundle

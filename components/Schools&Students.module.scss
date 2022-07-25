@@ -1,0 +1,134 @@
+@import '../styles/app.scss';
+.body {
+    background-color: #F2F2FB;
+}
+
+.container{
+    position: relative;
+    top: -100px;
+    z-index: 99;
+    width: 1200px;
+    height: 202px;
+    margin: 0 auto 0;
+    background: #FFFFFF;
+    border: 1px solid rgba(48, 20, 70, 0.15);
+    box-shadow: 8px 14px 60px rgba(48, 20, 70, 0.15);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+.heading {
+    font-size: 56px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 110%;
+}
+
+.subheading {
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 110%;
+    color: rgba(48, 20, 70, 0.75);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border: 2px solid rgba(48, 20, 70, 0.15);
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+}
+
+.school {
+    width: 370px;
+    color: #7B7FDA;
+}
+
+.registered {
+    color:#68BC98;
+    width: 360px;
+}
+
+.timer {
+    width: 355px;
+    border:none;
+    color:#EA7052;
+}
+
+.row
+{
+    column-gap: 14px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+
+.time {
+    .row {
+        justify-content:space-around;
+    }
+    .subheading { 
+        font-size: 14px;
+        opacity: .5;
+        letter-spacing: 2px;
+        color: #301446;
+    }
+}
+
+@media only screen and (max-width:425px) {
+
+    .container {
+        flex-direction: column;
+        width: 320px;
+        height:350px;
+
+        .span {
+            height: 40px;
+            width: 40px;
+        }
+    }
+
+    .heading{
+        font-size: 40px;
+    }
+    
+    .subheading {
+        font-size: 12px;
+    }
+
+    .card {
+        gap:0;
+    }
+
+    .school {
+        padding-bottom: 24px;
+        width: 90%;
+        border: 2px solid rgba(48, 20, 70, 0.05);
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .registered {
+        padding-bottom: 24px;
+        width: 90%;
+        border: 2px solid rgba(48, 20, 70, 0.05);
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .timer {
+        width: 90%;
+    }
+}

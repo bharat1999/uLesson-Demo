@@ -4,6 +4,7 @@ import style from './studentRegister.module.scss'
 import RegistrationRules from '../components/RegistrationRules'
 import RegistrationTop from '../components/RegistrationTop'
 import Router, { useRouter } from 'next/router'
+import { useState } from 'react'
 
 const data = {
     heading:'uLesson Challenge Registration (Student)',
@@ -16,9 +17,12 @@ const data = {
 
 export default function StudentRegister() {
     const router = useRouter()
+    const [modalOpen,setModalOpen] = useState(false)
+
     return (
+        <div className={(modalOpen==true?style.dark:'')}>
         <div className={style.mainContainer}>
-            <RegistrationTop/>
+            <RegistrationTop modalOpen={modalOpen} onChange={val=>setModalOpen(val)}/>
             <RegistrationRules heading={data.heading} data={data.data}/>
             <div className={style.container}>
                     <div className={style.heading}>
@@ -114,6 +118,7 @@ export default function StudentRegister() {
             <div className={style.btnContainer}>
                 <button type='button' className={style.btn} onClick={()=> router.push('/successfulStudent')}>Submit</button>
             </div>
+        </div>
         </div>
     )
 }

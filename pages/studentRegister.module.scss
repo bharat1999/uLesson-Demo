@@ -1,9 +1,17 @@
 @import '../styles/app.scss';
 
+.dark {
+    background-color: rgba(48, 20, 70, 0.25);
+    margin: 0;
+    padding: 0;
+}
+
+
 .mainContainer {
     color:$black;
     width: 980px;
-    margin: 46px auto 141px;
+    margin:0 auto;
+    padding-bottom: 141px;
 }
 
 .container {

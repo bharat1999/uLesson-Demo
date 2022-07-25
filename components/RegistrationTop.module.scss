@@ -1,8 +1,24 @@
 @import '../styles/app.scss';
 
+.body{
+    display: flex;
+    flex-direction: column;
+}
+
+.dark {
+    background-color:rgba(48, 20, 70, 0.25);
+}
 
 .container {
+    margin-top: 46px;
     margin-bottom: 80px;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+
+}
+
+
+.logo:hover,.close:hover {
+    cursor: pointer;
 }

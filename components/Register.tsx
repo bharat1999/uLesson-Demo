@@ -22,7 +22,7 @@ function Card(props:card)
                 <div className={style.cardText}>
                     {props.text}
                 </div>
-                <button className={style.btn} onClick={()=> router.push(props.route)}>Register Now</button>
+                <button className={style.btn} onClick={()=> {router.push(props.route)}}>Register Now</button>
             </div>
             <div className={style.img}>
                 <Image src = {props.src} alt=''/>

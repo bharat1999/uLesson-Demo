@@ -21,6 +21,8 @@ const data = {
 
 export default function SchoolRegister() {
     const [uploadType,setUploadType] = useState('manual');
+    const [modalOpen,setModalOpen] = useState(false)
+
 
         function handleClick() 
         {
@@ -34,11 +36,11 @@ export default function SchoolRegister() {
         useEffect(()=> setUploadType('manual'),[])
         const router = useRouter()
     return (
-        
-        <div className={style.mainContainer}>
-            <RegistrationTop/>
-            <RegistrationRules heading={data.heading} data={data.data}/>
-            <div className={style.container}>
+        <div className={(modalOpen==true?style.dark:'')}>
+            <div className={style.mainContainer}>
+                <RegistrationTop modalOpen={modalOpen} onChange={val=>setModalOpen(val)}/>
+                <RegistrationRules heading={data.heading} data={data.data}/>
+                <div className={style.container}>
                     <div className={style.heading}>
                         School Details
                     </div>
@@ -95,9 +97,10 @@ export default function SchoolRegister() {
                         </div>
                         {uploadType=='manual'?<Manual/>:<Bulk/>}
                     </div>
-            </div>
-            <div className={style.btnContainer}>
-                <button type='button' className={style.btn} onClick={()=> router.push('/successfulSchool')}>Submit</button>
+                </div>
+                <div className={style.btnContainer}>
+                    <button type='button' className={style.btn} onClick={()=> router.push('/successfulSchool')}>Submit</button>
+                </div>
             </div>
         </div>
     )

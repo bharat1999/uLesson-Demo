@@ -17,6 +17,22 @@ $black:#301446;
     letter-spacing: -.01em;
 }
 
+.btn {
+    font-family: $font-2;
+    font-weight: 700;
+    background-color: $orange;
+    border-radius: 10px;
+    letter-spacing: .4px;
+    color:#FFFFFF;
+    border: none;
+    transition: .2s ease-in-out 0s;
+
+}
+
+.btn:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+}
 
 .input {
     box-sizing: border-box;

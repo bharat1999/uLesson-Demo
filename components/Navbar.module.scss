@@ -1,21 +1,31 @@
 @import '../styles/app.scss';
 
+.container {
+    background-color: $black;
+}
+
 .largeContainer {
     padding-top: 42px;
-    padding-left: 120px;
-    padding-right: 120px;
-    background-color: #301446;
+    width: 1201px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    align-content: center;
 }
 
 .smallContainer {
     display: none;
 }
 
+.navLogo {
+    display: flex;
+    align-items: center;
+}
+
 .links {
     display: flex;
     flex-direction: row;
+    height: 50px;
     gap: 60px;
     align-items: center;
 }
@@ -26,25 +36,31 @@
     font-size: 13px;
     color: #ffffff;
     opacity: .5;
+    
+}
+
+.li:hover {
+    opacity: 1;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .btn {
     width: 180px;
     height: 50px;
-    background-color: #EA7052;
-    border-radius: 10px;
-    font-family: $font-2;
-    font-weight: 700;
     font-size: 13px;
     color:#ffffff;
-    border:none;
+}
+
+.navLogo:hover,.btn:hover {
+    cursor:pointer;
 }
 
 .hide {
     display: none;
 }
 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:416px) {
     .largeContainer {
         display: none;
     }
@@ -53,11 +69,16 @@
     }
     .navContainer {
         padding-top: 37px;
-        padding-left: 32px;
-        padding-right: 32px;
-        background-color: #301446;
+        padding-left: 30px;
+        padding-right: 30px;
+        background-color:$black;
         display: flex;
         justify-content: space-between;
+    }
+
+    .navLogo {
+        height: 20px;
+        width: 124px;
     }
 
     .show{ 
@@ -67,11 +88,11 @@
     .links {
         padding-top: 40px;
         flex-direction: column;
-        height: 100vw;
+        height: 100vh;
     }
 
     .li {
-        font-size: 20px;
+        font-size: 17px;
     }
     
 }
