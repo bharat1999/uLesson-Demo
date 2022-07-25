@@ -103,7 +103,7 @@
     opacity: .3;
 }
 
-@media only screen and (max-width:1023px) {
+@media only screen and (max-width:425px) {
 
     .container {
         justify-content: center;
@@ -111,7 +111,13 @@
     .img {
         display: none;
     }
+
+    .heading{
+        text-align: center;
+    }
+
     .subheading {
+        text-align: center;
         width: 100%;
     }
     .footerContainer {
