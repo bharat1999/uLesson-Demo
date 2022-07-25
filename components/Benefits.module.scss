@@ -42,7 +42,7 @@
     }
 }
 
-@media only screen and (max-width:1265px) {
+@media only screen and (max-width:425px) {
     .awards {
         flex-direction: column;
         row-gap: 81px;
@@ -53,6 +53,7 @@
     }
 
     .subheading {
+        
         margin-bottom: 55px;
         span {
             font-size: 16px;

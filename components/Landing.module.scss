@@ -60,17 +60,21 @@
         margin-top: 77.5px;
         width: 100%;
         flex-direction: column;
+        align-items: center;
         gap: 5px;
     }
     .info {
         width: 100%;
         text-align: center;
         .heading {
+            width: 90%;
             font-size: 36px;
+            margin: 0 auto;
         }
         .subheading {
+            width: 90%;
+            margin: 0 auto;
             line-height: 140%;
-            width: 100%;
             font-size: 18px;
         }
     }
