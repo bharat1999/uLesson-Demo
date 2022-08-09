@@ -22,14 +22,8 @@ const timerIcon = <svg className={style.span} width="64" height="64" viewBox="0 
 
 export default function SchoolsStudents() {
 
-    const FIVE_DAYS_IN_MS = 5 * 24 * 60 * 60 * 1000;
-    const NOW_IN_MS = new Date().getTime();
-    const dateTimeAfterFiveDays = NOW_IN_MS + FIVE_DAYS_IN_MS;
-    const [targetDate, setTargetDate] = useState(
-        new Date(dateTimeAfterFiveDays)
-      );
 
-    const [days, hours, minutes] = useCountDown(targetDate);  
+    const [days, hours, minutes] = useCountDown("August 15, 2022");  
     return (
         <div className={style.body}>
             <div className={style.container}>
