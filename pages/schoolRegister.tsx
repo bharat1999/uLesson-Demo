@@ -1,11 +1,13 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable react/no-unescaped-entities */
 
 import { useEffect, useState } from 'react'
 import style from './schoolRegister.module.scss'
 import RegistrationRules from '../components/RegistrationRules'
 import RegistrationTop from '../components/RegistrationTop'
-import Manual from '../components/Manual'
-import Bulk from '../components/Bulk'
+import StudentRegisterCard from '../components/StudentRegisterCard'
+import TextInput from '../components/TextInput'
+import Dropdown from '../components/Dropdown'
 import Router, { useRouter } from 'next/router'
 
 
@@ -19,85 +21,90 @@ const data = {
         'Please ensure that the mobile number provided for each student is the same as the contact they registered on the uLesson app.']
 }
 
+
+const examLocation = [
+    {value:'lagos',label:'Lagos'},
+    {value:'abuja',label:'Abuja'}
+]
+
+
 export default function SchoolRegister() {
-    const [uploadType,setUploadType] = useState('manual');
     const [modalOpen,setModalOpen] = useState(false)
+    const [students,setStudents] = useState(1)
+    const [studentCard,setStudentCard] = useState([<StudentRegisterCard number='1'/>])
 
-
-        function handleClick() 
+    useEffect(()=> {
+        if(students==0)
         {
-            if(uploadType=='manual')
-                setUploadType('bulk');
-            else
-                setUploadType('manual')
-            console.log(uploadType)
+            setStudentCard([])
+            return;
         }
+        var rows:JSX.Element[] = []
+        for(var i=1;i<=students;i++)
+        {
+            rows.push(<StudentRegisterCard number={i.toString()}/>)
+        }
+        setStudentCard(rows)
+    },[students])
 
-        useEffect(()=> setUploadType('manual'),[])
-        const router = useRouter()
+    const router = useRouter()
     return (
         <div className={(modalOpen==true?style.dark:'')}>
             <div className={style.mainContainer}>
-                <RegistrationTop modalOpen={modalOpen} onChange={val=>setModalOpen(val)} heading='Are you sure you want to cancel your registration?' subheading='Kindly confirm if you want to cancel the registration process.' btnText='Back to Registration'/>
+                <RegistrationTop modalOpen={modalOpen} setOpenModal={setModalOpen} heading='Are you sure you want to cancel your registration?' subheading='Kindly confirm if you want to cancel the registration process.' btnText='Back to Registration'/>
                 <RegistrationRules heading={data.heading} data={data.data}/>
-                <div className={style.container}>
-                    <div className={style.heading}>
-                        School Details
-                    </div>
-                    <div className={style.formContainer}>
-                        <form action="">
+                <form action="">
+                    <div className={style.container}>
+                        <div className={style.heading}>
+                            School Details
+                        </div>
+                        <div className={style.formContainer}>
+                            <div className={style.row}>
+                                <TextInput label='School Name' width='996px'/>           
+                            </div>
                             <div className={style.row}>
                                 <div className={style.col}>
-                                    <label htmlFor="School Name" className={style.labelText}>School Name</label>
-                                    <input className={style.input} type="text" />
+                                    <TextInput label='School Country' value={'Nigeria'} readonly={true}/>
                                 </div>
                                 <div className={style.col}>
-                                    <label htmlFor="Location" className={style.labelText}>School Location</label>
-                                    <select name="Location" className={style.input}>
-                                        <option value="Lagos">Lagos</option>
-                                        <option value="Dummy">Dummy</option>
-                                    </select>
+                                    <Dropdown label="School Location"options={examLocation}/>
+                                </div>
+                                <div className={style.col}>
+                                    <Dropdown label="Preferred Exam Location" options={examLocation}/>
                                 </div>
                             </div>
                             <div className={style.row}>
                                 <div className={style.col}>
-                                    <label htmlFor="Principal Name" className={style.labelText}>Name of Principal / Head of School</label>
-                                    <input type="text" name="Name Principal" className={style.principal + ' ' +  style.input} />
-                                </div>
-                                
-                            </div>
-                            <div className={style.row}>
-                                <div className={style.col}>
-                                    <label htmlFor="Principal Email" className={style.labelText}>Principal's Email Address</label>
-                                    <input type="email" name="Email" className={style.input} />
+                                    <TextInput label='Name of Principal / Head of School'/>
                                 </div>
                                 <div className={style.col}>
-                                    <label htmlFor=" Principal Phone No" className={style.labelText}>Principal's Phone Number</label>
-                                    <input type="tel" className={style.input} />
+                                    <TextInput label="Principal's Email Address"/>
                                 </div>
-                            </div>
-                            
-                        </form>
-                    </div>
-            </div>
-            <div className={style.container}>
-                    <div className={style.heading}>
-                        Student Details
-                    </div>
-                    <div className={style.formContainer}>
-                        <div className={style.row}>
-                            <div className={style.col}>
-                                <label htmlFor="input Option" className={style.labelText}>How do you want to add your candidates?</label>
-                                <div className={style.radioGroup} >
-                                    <input className={style.radio} onChange={handleClick} type="radio" value="Manual" name="upload option" checked={uploadType=='manual'} /> Manually
-                                    <div className={style.space}></div>
-                                    <input className={style.radio} onChange={handleClick} type="radio" value="bulk" name="upload option" checked={uploadType=='bulk'}/> Bulk upload student details 
+                                <div className={style.col}>
+                                    <TextInput label="Principal's Phone Number"/>
                                 </div>
                             </div>
                         </div>
-                        {uploadType=='manual'?<Manual/>:<Bulk/>}
                     </div>
-                </div>
+                    <div className={style.container}>
+                        <div className={style.heading}>
+                            Student Details
+                        </div>
+                        <div className={style.updateBtn}>
+                            <div className={style.row}>
+                                <div className={style.labelText}>How many candidates will you enter for the challenge?</div>
+                            </div>
+                            <div className={style.updateBtnContainer}>
+                                <button type='button' className={style.btn + ' ' +style.minus} onClick={students==1?()=>{}:()=>{setStudents(students-1)}} >-</button>
+                                <input className={style.input} type="text" name="" id="" value={students} readOnly/>
+                                <button type='button' className={style.btn + ' ' + style.plus} onClick={()=>setStudents(students+1)}>+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id='student' className={style.students}>
+                        {studentCard}
+                    </div>    
+                </form>
                 <div className={style.btnContainer}>
                     <button type='button' className={style.btn} onClick={()=> router.push('/successfulSchool')}>Submit</button>
                 </div>

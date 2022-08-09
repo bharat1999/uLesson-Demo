@@ -1,0 +1,9 @@
+@import '../styles/app.scss';
+
+
+@media only screen and (max-width:425px) {
+
+    .col {
+        width: 90vw !important;
+    }
+}

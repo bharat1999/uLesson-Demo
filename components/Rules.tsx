@@ -23,7 +23,13 @@ export default function Rules() {
                 data.map((d)=>(
                     // eslint-disable-next-line react/jsx-key
                     <div className={style.rule}>
-                        {tick}<span className={style.r}>{d}</span>
+                        <div className={style.row}> 
+                            <div className={style.col}>{tick}</div>
+                            <div className={style.col}>
+                        <span className={style.r}>{d}</span>
+
+                            </div>
+                        </div>
                     </div>
                 ))
             }

@@ -12,6 +12,7 @@
 
 
 .cardContainer {
+    box-sizing: border-box;
     width: 588px;
     height: 284px;
     background: #F2F2FB;
@@ -19,8 +20,14 @@
     display: flex;
     padding-left: 44px;
     padding-right: 35px;
-    gap:83px;
+    padding-top: 0;
+    padding-bottom: 0;
+    gap:54px;
     align-items: center;
+}
+
+.cardInfo {
+    width: 239px;
 }
 
 .cardText {
@@ -43,6 +50,8 @@
     width: 210px;
     color:#FFFFFF
 }
+
+
 
 @media only screen and (max-width:1365px) {
     .container {

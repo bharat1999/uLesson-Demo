@@ -52,7 +52,7 @@ export default function Benefits() {
             </div>
             <div className={style.subheading}>
                 <Image src={award} alt=''/>
-                <span>The top 3 winning schools in each category will get an award</span>
+                <span>These awards apply to each of the four categories. The top 3 winning schools in each category will receive awards</span>
             </div>
         </div>
     )

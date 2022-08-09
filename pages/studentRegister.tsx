@@ -3,8 +3,14 @@
 import style from './studentRegister.module.scss'
 import RegistrationRules from '../components/RegistrationRules'
 import RegistrationTop from '../components/RegistrationTop'
+import Dropdown from '../components/Dropdown'
+import TextInput from '../components/textInput'
 import Router, { useRouter } from 'next/router'
 import { useState } from 'react'
+
+
+
+
 
 const data = {
     heading:'uLesson Challenge Registration (Student)',
@@ -15,105 +21,124 @@ const data = {
         'Review and submit your details.']
 }
 
+const gradeGroupOptions = [
+    { value: 'juniorCategory', label: 'Junior Secondary' },
+    { value: 'seniorCategory', label: 'Senior Secondary' },
+  ]
+
+const juniorCategory = [
+    {value:'junior',label:'Junior'}
+]
+
+const seniorCategory = [
+    {value:'science',label:'Science'},
+    {value:'humanities',label:'Humanities'},
+    {value:'business',label:'Business'}
+]
+
+const juniorClass = [
+    {value:'year7',label:'Year 7 / Grade 7 / JSS1'},
+    {value:'year8',label:'Year 8 / Grade 8 / JSS1'}
+]
+
+const seniorClass = [
+    {value:'year10',label:'Grade 10 / SS1'},
+    {value:'year11',label:'Grade 11 / SS2'},
+    {value:'year12',label:'Grade 11 / SS3 / WAEC'}
+]
+
+const examLocation = [
+    {value:'lagos',label:'Lagos'},
+    {value:'abuja',label:'Abuja'}
+]
+
+const gender = [
+    {value:'male',label:'Male'},
+    {value:'female',label:'Female'}
+]
+
+
 export default function StudentRegister() {
     const router = useRouter()
     const [modalOpen,setModalOpen] = useState(false)
+    const [gradeType,setGradeType] = useState('')
 
     return (
         <div className={(modalOpen==true?style.dark:'')}>
         <div className={style.mainContainer}>
-            <RegistrationTop modalOpen={modalOpen} onChange={val=>setModalOpen(val)} heading='Are you sure you want to cancel your registration?' subheading='Kindly confirm if you want to cancel the registration process.' btnText='Back to Registration'/>
+            <RegistrationTop modalOpen={modalOpen} setOpenModal={setModalOpen} heading='Are you sure you want to cancel your registration?' subheading='Kindly confirm if you want to cancel the registration process.' btnText='Back to Registration'/>
             <RegistrationRules heading={data.heading} data={data.data}/>
             <div className={style.container}>
-                    <div className={style.heading}>
-                        Student Details
-                    </div>
-                    <div className={style.formContainer}>
-                        <form action="">
-                            <div className={style.row}>
-                                <div className={style.col}>
-                                    <label htmlFor="Name" className={style.labelText}>Name</label>
-                                    <input className={style.input} type="text" />
-                                </div>
-                                <div className={style.col}>
-                                    <label htmlFor="Gender" className={style.labelText}>Gender</label>
-                                    <select name="Gender" className={style.input}>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                    </select>
-                                </div>
+                <div className={style.heading}>
+                    Student Details
+                </div>
+                <div className={style.formContainer}>
+                    <form action="">
+                        <div className={style.row}>
+                            <div className={style.col}>
+                                <TextInput label="First Name"/>
                             </div>
-                            <div className={style.row}>
-                                <div className={style.col}>
-                                    <label htmlFor="Date of Birth" className={style.labelText}>Date of Birth</label>
-                                    <input type="date" name="DOB" className={style.input} />
-                                </div>
-                                <div className={style.col}>
-                                    <label htmlFor="Category" className={style.labelText}>Category</label>
-                                    <select name="Category" className={style.input}>
-                                        <option value="Junior Secondary">Junior Secondary</option>
-                                        <option value="Senior Secondary">Senior Secondary</option>
-                                    </select>
-                                </div>
+                            <div className={style.col}>
+                                <TextInput label="Last Name"/>
                             </div>
-                            <div className={style.row}>
-                                <div className={style.col}>
-                                    <label htmlFor="Class" className={style.labelText}>Class</label>
-                                    <select name="Class" className={style.input}>
-                                        <option value="Year 7">Year 7 / Grade 7 / JSS1</option>
-                                        <option value="Year 8">Year 8 / Grade 8 / JSS1</option>
-                                    </select>
-                                </div>
-                                <div className={style.col}>
-                                    <label htmlFor="Phone No" className={style.labelText}>uLesson Registered Phone Number</label>
-                                    <input type="tel" className={style.input} />
-                                </div>
+                            <div className={style.col}>
+                                <Dropdown label='Gender' options={gender}/>
                             </div>
-                            
-                        </form>
-                    </div>
+                        </div>
+                        <div className={style.row}>
+                            <div className={style.col}>
+                                <label htmlFor="Date of Birth" className={style.labelText}>Date of Birth</label>
+                                <input type="date" name="DOB" className={style.input} />
+                            </div>
+                            <div className={style.col}>
+                                <Dropdown label="Grade Group" options={gradeGroupOptions} setCategory={setGradeType} />
+                            </div>
+                            <div className={style.col}>
+                                <Dropdown label="Category" options={gradeType==''?[]:gradeType=='juniorCategory'?juniorCategory:seniorCategory} isDisabled={gradeType==''?true:false}/>
+                            </div>
+                        </div>
+                        <div className={style.row}>
+                            <div className={style.col}>
+                                <Dropdown label="Class" options={gradeType==''?[]:gradeType=='juniorCategory'?juniorClass:seniorClass} isDisabled={gradeType==''?true:false}/>
+                            </div>
+                            <div className={style.col}>
+                                <TextInput label='uLesson Registered Phone Number'/>
+                            </div>
+                            <div className={style.col}>
+                                <Dropdown label="Exam Location" options={examLocation}/>
+                            </div>
+                        </div>        
+                    </form>
+                </div>
             </div>
             <div className={style.container}>
-                    <div className={style.heading}>
-                        School Details
+                <div className={style.heading}>
+                    School Details
+                </div>
+                <div className={style.formContainer}>
+                    <div className={style.row}>
+                        <TextInput label='School Name' width='996px'/>           
                     </div>
-                    <div className={style.formContainer}>
-                        <form action="">
-                            <div className={style.row}>
-                                <div className={style.col}>
-                                    <label htmlFor="School Name" className={style.labelText}>School Name</label>
-                                    <input className={style.input} type="text" />
-                                </div>
-                                <div className={style.col}>
-                                    <label htmlFor="Location" className={style.labelText}>School Location</label>
-                                    <select name="Location" className={style.input}>
-                                        <option value="Lagos">Lagos</option>
-                                        <option value="Dummy">Dummy</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div className={style.row}>
-                                <div className={style.col}>
-                                    <label htmlFor="School Contact" className={style.labelText}>School Contact</label>
-                                    <input type="tel" name="School No" className={style.input} />
-                                </div>
-                                <div className={style.col}>
-                                    <label htmlFor="Principal Name" className={style.labelText}>Name of Principal / Head of School</label>
-                                    <input type="text" name="Name Principal" className={style.input} />
-                                </div>
-                            </div>
-                            <div className={style.row}>
-                                <div className={style.col}>
-                                    <label htmlFor="Principal Email" className={style.labelText}>Principal's Email Address</label>
-                                    <input type="email" name="Email" className={style.input} />
-                                </div>
-                                <div className={style.col}>
-                                    <label htmlFor=" Principal Phone No" className={style.labelText}>Principal's Phone Number</label>
-                                    <input type="tel" className={style.input} />
-                                </div>
-                            </div>
-                        </form>
+                    <div className={style.row}>
+                        <div className={style.col}>
+                            <TextInput label='School Country' value={'Nigeria'} readonly={true} width='486px'/>
+                        </div>
+                        <div className={style.col}>
+                            <Dropdown label="School Location" width='486px' options={examLocation}/>
+                        </div>
                     </div>
+                    <div className={style.row}>
+                        <div className={style.col}>
+                            <TextInput label="Name of Principal/Head of School"/>
+                        </div>
+                        <div className={style.col}>
+                            <TextInput label="Principal's Email Address"/>
+                        </div>
+                        <div className={style.col}>
+                            <TextInput label="Principal's Phone Number"/>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div className={style.btnContainer}>
                 <button type='button' className={style.btn} onClick={()=> router.push('/successfulStudent')}>Submit</button>

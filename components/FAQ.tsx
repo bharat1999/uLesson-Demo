@@ -25,10 +25,13 @@ function Card({question,ans,border=true}:data) {
     }
     return (
         <div className={style.cardContainer + ' '+ (border==false?style.noBorder:'')}>
-            <div className={style.question}>
-                <div className={style.questionText + ' ' +(isOpen==true?style.open:'')}>{question}</div>
-                <a onClick={handleClick}>{isOpen==false?plus:minus}</a>
-            </div>
+            <a onClick={handleClick}>
+                <div className={style.question}>
+                    <div className={style.questionText + ' ' +(isOpen==true?style.open:'')}>{question}</div>
+                    <div >{isOpen==false?plus:minus}</div>
+                </div>
+            </a>
+            
             <div className={isOpen==true?style.show:style.hide}>
                 <div className={style.ans}>
                     {ans}

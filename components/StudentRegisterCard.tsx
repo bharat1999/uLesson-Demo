@@ -1,4 +1,8 @@
 
+import { useState } from 'react'
+
+import TextInput from './TextInput'
+import Dropdown from './Dropdown'
 
 import style from './StudentRegisterCard.module.scss'
 
@@ -7,62 +11,77 @@ interface card {
 }
 
 
+const gender = [
+    {value:'male',label:'Male'},
+    {value:'female',label:'Female'}
+]
+
+
+const gradeGroupOptions = [
+    { value: 'juniorCategory', label: 'Junior Secondary' },
+    { value: 'seniorCategory', label: 'Senior Secondary' },
+  ]
+
+const juniorCategory = [
+    {value:'junior',label:'Junior'}
+]
+
+const seniorCategory = [
+    {value:'science',label:'Science'},
+    {value:'humanities',label:'Humanities'},
+    {value:'business',label:'Business'}
+]
+
+const juniorClass = [
+    {value:'year7',label:'Year 7 / Grade 7 / JSS1'},
+    {value:'year8',label:'Year 8 / Grade 8 / JSS1'}
+]
+
+const seniorClass = [
+    {value:'year10',label:'Grade 10 / SS1'},
+    {value:'year11',label:'Grade 11 / SS2'},
+    {value:'year12',label:'Grade 11 / SS3 / WAEC'}
+]
+
+
 export default function StudentRegisterCard(props:card) {
+    const [gradeType,setGradeType] = useState('')
     return (
         <div className={style.container}>
-                    <div className={style.heading}>
-                        Student {props.number}
+            <div className={style.heading}>
+                Student {props.number}
+            </div>
+            <div className={style.formContainer}>
+                <div className={style.row}>
+                    <div className={style.col}>
+                        <TextInput label='First Name' width='231px'/>
                     </div>
-                    <div className={style.formContainer}>
-                        <div className={style.row}>
-                            <div className={style.col}>
-                                    <label htmlFor="Name" className={style.labelText}>First Name</label>
-                                    <input className={style.input} type="text" />
-                                </div>
-                                <div className={style.col}>
-                                    <label htmlFor="Name" className={style.labelText}>Last Name</label>
-                                    <input className={style.input} type="text" />
-                                </div>
-                                <div className={style.col}>
-                                    <label htmlFor="Gender" className={style.labelText}>Gender</label>
-                                    <select name="Gender" className={style.input}>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                    </select>
-                                </div>
-                                <div className={style.col}>
-                                    <label htmlFor="Date of Birth" className={style.labelText}>Date of Birth</label>
-                                    <input type="date" name="DOB" className={style.input} />
-                                </div>
-                            </div>
-                            <div className={style.row}>
-                                <div className={style.col}>
-                                    <label htmlFor="Category" className={style.labelText}>Grade Group</label>
-                                    <select name="Category" className={style.input}>
-                                        <option value="Junior Secondary">Junior Secondary</option>
-                                        <option value="Senior Secondary">Senior Secondary</option>
-                                    </select>
-                                </div>
-                                <div className={style.col}>
-                                    <label htmlFor="Competition Category" className={style.labelText}>Competition Category</label>
-                                    <select name="Competition Category" className={style.input}>
-                                        <option value="Science">Science</option>
-                                        <option value="Humanities">Humanities</option>
-                                    </select>
-                                </div>
-                                <div className={style.col}>
-                                    <label htmlFor="Class" className={style.labelText}>Class</label>
-                                    <select name="Class" className={style.input}>
-                                        <option value="Year 7">Year 7 / Grade 7 / JSS1</option>
-                                        <option value="Year 8">Year 8 / Grade 8 / JSS1</option>
-                                    </select>
-                                </div>
-                                <div className={style.col}>
-                                    <label htmlFor="Phone No" className={style.labelText}>Registered uLesson Number</label>
-                                    <input type="tel" className={style.input} />
-                                </div>
-                            </div>
+                    <div className={style.col}>
+                        <TextInput label='Last Name' width='231px'/>
                     </div>
+                    <div className={style.col}>
+                        <Dropdown label='Gender' options={gender} width='231px'/>
+                    </div>
+                    <div className={style.col}>
+                        <label htmlFor="Date of Birth" className={style.labelText}>Date of Birth</label>
+                        <input type="date" name="DOB" className={style.input} />
+                    </div>
+                    </div>
+                    <div className={style.row}>
+                        <div className={style.col}>
+                            <Dropdown label="Grade Group" options={gradeGroupOptions} setCategory={setGradeType} width='231px'/>
+                        </div>
+                        <div className={style.col}>
+                            <Dropdown label="Competition Category" width='231px' options={gradeType==''?[]:gradeType=='juniorCategory'?juniorCategory:seniorCategory} isDisabled={gradeType==''?true:false}/>
+                        </div>
+                        <div className={style.col}>
+                            <Dropdown label="Class" options={gradeType==''?[]:gradeType=='juniorCategory'?juniorClass:seniorClass} width='231px' isDisabled={gradeType==''?true:false}/>
+                        </div>
+                        <div className={style.col}>
+                            <TextInput label='uLesson Registered Phone Number' width='231px'/>
+                        </div>
+                    </div>
+                </div>
             </div>
     )
 }

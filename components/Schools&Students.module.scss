@@ -32,7 +32,6 @@
     margin: 0;
     font-weight: 700;
     font-size: 18px;
-    text-align: center;
     letter-spacing: 1px;
     line-height: 110%;
     color: rgba(48, 20, 70, 0.75);
@@ -51,17 +50,26 @@
 .school {
     width: 370px;
     color: #7B7FDA;
+    .subheading {
+        margin-left: 80px;
+    }
 }
 
 .registered {
     color:#68BC98;
     width: 360px;
+    .subheading {
+        margin-left: 80px;
+    }
 }
 
 .timer {
     width: 355px;
     border:none;
     color:#EA7052;
+    .subheading {
+        margin-left: 80px;
+    }
 }
 
 .row
@@ -78,6 +86,7 @@
         justify-content:space-around;
     }
     .subheading { 
+        margin-left: 0;
         font-size: 14px;
         opacity: .5;
         letter-spacing: 2px;

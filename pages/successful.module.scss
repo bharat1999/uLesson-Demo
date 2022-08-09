@@ -1,6 +1,8 @@
 @import '../styles/app.scss';
 
 
+
+
 .container {
     margin: 46px 222px 101px;
 }
@@ -22,27 +24,40 @@
 
 // Link
 
-.heading {
-    font-size: 20px;
+.linkContainer {
+    width: 996px;
 }
 
+
+
 .box {
+    font-family: $font-1;
+    font-size: 20px;
     background: #FFFFFF;
     border: 1px solid #E0E7FF;
     border-radius: 4px 0px 0px 4px;
     width: 281px;
     padding-top: 17px;
     padding-left: 25px;
+    opacity: .7;
+    line-height: 110%;
 }
-
-
 
 .input {
     padding: 17px 61px;
+    width: 715px;
+    font-size: 20px;
     a {
         color:#2640C9;
         word-wrap: break-word;
     }
+}
+
+.linkBox {
+    width: 996px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 
 @media only screen and (max-width:1023px) {
@@ -60,8 +75,16 @@
     }
 
     
+    .linkBox {
+        gap: 29px;
+        width: 99%;
+    }
 
     // Link 
+
+    .linkContainer {
+        width: 100%;
+    }
 
     .row {
         flex-direction: column;
@@ -79,6 +102,8 @@
     } 
 
     .input {
+        width: 100%;
+        font-size: 16px;
         padding: 9px 10px;
         text-align: center;
     }

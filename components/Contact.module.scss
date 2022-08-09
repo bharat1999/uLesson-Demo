@@ -8,8 +8,13 @@
     padding-left: 122px;
     padding-right: 122px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap:101px;
     align-items: center;
+}
+
+.info {
+    height: 320px;
 }
 
 .heading {
