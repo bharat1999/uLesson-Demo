@@ -48,7 +48,7 @@ export default function Dropdown({label,options,isDisabled=false,setCategory=und
     return (
         <div style={{width:width}} className={style.col}>
             <label htmlFor="Category" className={style.labelText}>{label}</label>
-            <Select styles={customStyles}  options={options} isDisabled={isDisabled} onChange={setCategory!=undefined?(e)=>setCategory(e.value):{}}></Select>
+            <Select styles={customStyles}  options={options} isDisabled={isDisabled} onChange={setCategory!=undefined?(e:any)=>setCategory(e.value):()=>{}}></Select>
         </div>
     )
 }

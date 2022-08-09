@@ -1,5 +1,7 @@
 
 import style from './Schools&Students.module.scss'
+import useCountDown from '../hooks/useCountDown'
+import { useState } from 'react'
 
 const schoolIcon = <svg className={style.span} width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="64" height="64" rx="32" fill="#7B7FDA" fillOpacity="0.15"/>
@@ -19,6 +21,15 @@ const timerIcon = <svg className={style.span} width="64" height="64" viewBox="0 
 
 
 export default function SchoolsStudents() {
+
+    const FIVE_DAYS_IN_MS = 5 * 24 * 60 * 60 * 1000;
+    const NOW_IN_MS = new Date().getTime();
+    const dateTimeAfterFiveDays = NOW_IN_MS + FIVE_DAYS_IN_MS;
+    const [targetDate, setTargetDate] = useState(
+        new Date(dateTimeAfterFiveDays)
+      );
+
+    const [days, hours, minutes] = useCountDown(targetDate);  
     return (
         <div className={style.body}>
             <div className={style.container}>
@@ -55,7 +66,7 @@ export default function SchoolsStudents() {
                                     MINS
                                 </div>
                             </div>
-                        <p className={style.heading + " " + style}>05 : 12 : 32</p>
+                        <p className={style.heading + " " + style}>{days} : {hours} : {minutes}</p>
 
                         </div>
                     </div>

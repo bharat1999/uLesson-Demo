@@ -4,7 +4,7 @@ import style from './studentRegister.module.scss'
 import RegistrationRules from '../components/RegistrationRules'
 import RegistrationTop from '../components/RegistrationTop'
 import Dropdown from '../components/Dropdown'
-import TextInput from '../components/textInput'
+import TextInput from '../components/TextInput'
 import Router, { useRouter } from 'next/router'
 import { useState } from 'react'
 
