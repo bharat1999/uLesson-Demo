@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { useEffect, useState } from 'react'
 import style from './schoolRegister.module.scss'
 import RegistrationRules from '../components/RegistrationRules'

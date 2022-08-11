@@ -34,7 +34,7 @@ const formSchema = yup.object().shape({
   examLocation:yup.string().required(),
   schoolLocation:yup.string().required(),
   tel:yup.string().required(),
-  dob:date().transform(parseDateString).max(today),
+  dob:yup.date().max(today),
   principalName:yup.string().required(),
   principalEmail:yup.string().email().required(),
   principalTel:yup.string().required(),
