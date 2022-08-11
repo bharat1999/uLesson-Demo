@@ -1,22 +1,40 @@
-
+/* eslint-disable react/display-name */
+import { memo, useCallback } from 'react'
 import style from  './TextInput.module.scss'
 
 
 interface text {
     label:string,
+    fieldName:string,
+    type:string,
     width?:string,
-    value?:string,
+    value:string,
+    onChange:any,
+    hasError:boolean,
+    errorMessage?:string,
     readonly?:boolean
 }
 
 
 
-export default function TextInput({label,width="315px",value='',readonly=false}:text)
-{
+const TextInput = memo(({hasError,fieldName,errorMessage='',type,onChange,label,width="315px",value,readonly=false}:text) => {
+
+    const handleChange = useCallback(
+        (e:any) => {
+            onChange(fieldName,e.target.value)
+        },
+        [onChange,fieldName]
+    )
+
     return (
         <div className={style.col} style={{width:width}}>
-            <label  htmlFor={label} className={style.labelText}>{label}</label>
-            <input id='input' className={style.input} type="text" name={label.replace(/\s/g,'')} value={value} disabled={readonly}/>
+            <label  htmlFor={fieldName} className={style.labelText}>{label}</label>
+            <input id='input' className={style.input} type={type} name={fieldName} value={value} onChange={handleChange} readOnly={readonly}/>
+            {
+                hasError && <p className={style.error}>{errorMessage}</p>
+            }
         </div>
     )
-}
+})
+
+export default TextInput

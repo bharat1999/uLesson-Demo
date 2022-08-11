@@ -1,149 +1,178 @@
-/* eslint-disable react/no-unescaped-entities */
+//disable eslint/display-name
 
-import style from './studentRegister.module.scss'
-import RegistrationRules from '../components/RegistrationRules'
-import RegistrationTop from '../components/RegistrationTop'
-import Dropdown from '../components/Dropdown'
-import TextInput from '../components/TextInput'
-import Router, { useRouter } from 'next/router'
-import { useState } from 'react'
+import { memo,useEffect } from "react";
+import style from "./studentRegister.module.scss";
+import RegistrationRules from "../components/RegistrationRules";
+import RegistrationTop from "../components/RegistrationTop";
+import StudentRegisterForm from "../components/StudentRegisterForm"
+import update from 'immutability-helper'
+import { useState,useCallback } from "react";
+import * as yup from "yup";
+import {date,object} from "yup"
+import { parse, isDate } from "date-fns";
+import { useRouter } from "next/router";
+
+function parseDateString(value:Date, originalValue:string) {
+  const parsedDate = isDate(originalValue)
+    ? originalValue
+    : parse(originalValue, "yyyy-MM-dd", new Date());
+
+  return parsedDate;
+}
+
+const today = new Date();
 
 
-
-
+const formSchema = yup.object().shape({
+  firstName: yup.string().required(),
+  lastName: yup.string().required(),
+  schoolName:yup.string().required(),
+  gender:yup.string().required(),
+  gradeGroup:yup.string().required(),
+  category:yup.string().required(),
+  class:yup.string().required(),
+  examLocation:yup.string().required(),
+  schoolLocation:yup.string().required(),
+  tel:yup.string().required(),
+  dob:date().transform(parseDateString).max(today),
+  principalName:yup.string().required(),
+  principalEmail:yup.string().email().required(),
+  principalTel:yup.string().required(),
+});
 
 const data = {
-    heading:'uLesson Challenge Registration (Student)',
-    data:['Student MUST have an accessible uLesson account. Click here to sign up on uLesson.',
-        'Fill in School details in fields provided.',
-        'Complete your personal details',
-        'Please ensure that the mobile number you provide is the same as the contact on your uLesson account. ',
-        'Review and submit your details.']
-}
-
-const gradeGroupOptions = [
-    { value: 'juniorCategory', label: 'Junior Secondary' },
-    { value: 'seniorCategory', label: 'Senior Secondary' },
-  ]
-
-const juniorCategory = [
-    {value:'junior',label:'Junior'}
-]
-
-const seniorCategory = [
-    {value:'science',label:'Science'},
-    {value:'humanities',label:'Humanities'},
-    {value:'business',label:'Business'}
-]
-
-const juniorClass = [
-    {value:'year7',label:'Year 7 / Grade 7 / JSS1'},
-    {value:'year8',label:'Year 8 / Grade 8 / JSS1'}
-]
-
-const seniorClass = [
-    {value:'year10',label:'Grade 10 / SS1'},
-    {value:'year11',label:'Grade 11 / SS2'},
-    {value:'year12',label:'Grade 11 / SS3 / WAEC'}
-]
-
-const examLocation = [
-    {value:'lagos',label:'Lagos'},
-    {value:'abuja',label:'Abuja'}
-]
-
-const gender = [
-    {value:'male',label:'Male'},
-    {value:'female',label:'Female'}
-]
+  heading: "uLesson Challenge Registration (Student)",
+  data: [
+    "Student MUST have an accessible uLesson account. Click here to sign up on uLesson.",
+    "Fill in School details in fields provided.",
+    "Complete your personal details",
+    "Please ensure that the mobile number you provide is the same as the contact on your uLesson account. ",
+    "Review and submit your details.",
+  ],
+};
 
 
-export default function StudentRegister() {
-    const router = useRouter()
-    const [modalOpen,setModalOpen] = useState(false)
-    const [gradeType,setGradeType] = useState('')
 
-    return (
-        <div className={(modalOpen==true?style.dark:'')}>
-        <div className={style.mainContainer}>
-            <RegistrationTop modalOpen={modalOpen} setOpenModal={setModalOpen} heading='Are you sure you want to cancel your registration?' subheading='Kindly confirm if you want to cancel the registration process.' btnText='Back to Registration'/>
-            <RegistrationRules heading={data.heading} data={data.data}/>
-            <div className={style.container}>
-                <div className={style.heading}>
-                    Student Details
-                </div>
-                <div className={style.formContainer}>
-                    <form action="">
-                        <div className={style.row}>
-                            <div className={style.col}>
-                                <TextInput label="First Name"/>
-                            </div>
-                            <div className={style.col}>
-                                <TextInput label="Last Name"/>
-                            </div>
-                            <div className={style.col}>
-                                <Dropdown label='Gender' options={gender}/>
-                            </div>
-                        </div>
-                        <div className={style.row}>
-                            <div className={style.col}>
-                                <label htmlFor="Date of Birth" className={style.labelText}>Date of Birth</label>
-                                <input type="date" name="DOB" className={style.input} />
-                            </div>
-                            <div className={style.col}>
-                                <Dropdown label="Grade Group" options={gradeGroupOptions} setCategory={setGradeType} />
-                            </div>
-                            <div className={style.col}>
-                                <Dropdown label="Category" options={gradeType==''?[]:gradeType=='juniorCategory'?juniorCategory:seniorCategory} isDisabled={gradeType==''?true:false}/>
-                            </div>
-                        </div>
-                        <div className={style.row}>
-                            <div className={style.col}>
-                                <Dropdown label="Class" options={gradeType==''?[]:gradeType=='juniorCategory'?juniorClass:seniorClass} isDisabled={gradeType==''?true:false}/>
-                            </div>
-                            <div className={style.col}>
-                                <TextInput label='uLesson Registered Phone Number'/>
-                            </div>
-                            <div className={style.col}>
-                                <Dropdown label="Exam Location" options={examLocation}/>
-                            </div>
-                        </div>        
-                    </form>
-                </div>
-            </div>
-            <div className={style.container}>
-                <div className={style.heading}>
-                    School Details
-                </div>
-                <div className={style.formContainer}>
-                    <div className={style.row}>
-                        <TextInput label='School Name' width='996px'/>           
-                    </div>
-                    <div className={style.row}>
-                        <div className={style.col}>
-                            <TextInput label='School Country' value={'Nigeria'} readonly={true} width='486px'/>
-                        </div>
-                        <div className={style.col}>
-                            <Dropdown label="School Location" width='486px' options={examLocation}/>
-                        </div>
-                    </div>
-                    <div className={style.row}>
-                        <div className={style.col}>
-                            <TextInput label="Name of Principal/Head of School"/>
-                        </div>
-                        <div className={style.col}>
-                            <TextInput label="Principal's Email Address"/>
-                        </div>
-                        <div className={style.col}>
-                            <TextInput label="Principal's Phone Number"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className={style.btnContainer}>
-                <button type='button' className={style.btn} onClick={()=> router.push('/successfulStudent')}>Submit</button>
-            </div>
-        </div>
-        </div>
+ const StudentRegister = memo(()=> {
+const [modalOpen, setModalOpen] = useState(false);
+  
+
+  //state for values
+  const [values,setValues ] = useState({
+    firstName:'',
+    lastName:'',
+    schoolName:'',
+    gender:'',
+    gradeGroup:'',
+    category:'',
+    class:'',
+    examLocation:'',
+    schoolLocation:'',
+    tel:'',
+    dob:'',
+    schoolCountry:'Nigeria',
+    principalName:'',
+    principalEmail:'',
+    principalTel:''
+  })
+
+  // state for erros 
+  const [errors,setErrors] = useState({
+    firstName:false,
+    lastName:false,
+    schoolName:false,
+    gender:false,
+    gradeGroup:false,
+    category:false,
+    class:false,
+    examLocation:false,
+    schoolLocation:false,
+    tel:false,
+    dob:false,
+    schoolCountry:false,
+    principalName:false,
+    principalEmail:false,
+    principalTel:false
+  })
+
+  const router = useRouter()
+
+  // Create handler for input change event:
+  const onFieldChange = useCallback((fieldName:any, value:any) => {
+    setValues((prevValues) =>
+      update(prevValues, {
+        [fieldName]: {
+          $set: value,
+        },
+      })
     )
-}
+  }, [])
+
+  // fucntion to go to page
+
+  function gotoHome() {
+    router.push('/successfulStudent')
+  }
+
+  // Create handler for form submit event:
+  const onSubmit = useCallback(
+    async (event:any) => {
+      // Prevent form from submitting:
+      event.preventDefault()
+      // Check the schema if form is valid:
+      const isFormValid = await formSchema.isValid(values, {
+        abortEarly: false, // Prevent aborting validation after first error
+      })
+
+      console.log(values)
+
+      if (isFormValid) {
+        // If form is valid, continue submission.
+        console.log("vlaid")
+        gotoHome()
+      } 
+      else {
+        // If form is not valid, check which fields are incorrect:
+        formSchema.validate(values, { abortEarly: false }).catch((err) => {
+          // Collect all errors in { fieldName: boolean } format:
+          const errors = err.inner.reduce((acc: any, error: { path: any; }) => {
+            return {
+              ...acc,
+              [error.path]: true,
+            }
+          }, {})
+
+          console.log(errors)
+
+          // Update form errors state:
+          setErrors((prevErrors) =>
+            update(prevErrors, {
+              $set: errors,
+            })
+          )
+        })
+      }
+    },
+    [values]
+  )
+
+
+  return (
+    <div className={modalOpen == true ? style.dark : ""}>
+      <div className={style.mainContainer}>
+        <RegistrationTop
+          modalOpen={modalOpen}
+          setOpenModal={setModalOpen}
+          heading="Are you sure you want to cancel your registration?"
+          subheading="Kindly confirm if you want to cancel the registration process."
+          btnText="Back to Registration"
+        />
+        <RegistrationRules heading={data.heading} data={data.data} />
+        <StudentRegisterForm values={values} errors={errors} onFieldChange={onFieldChange} onSubmit={onSubmit}/>
+      </div>
+    </div>
+  );
+})
+
+
+export default StudentRegister

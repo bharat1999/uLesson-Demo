@@ -6,15 +6,19 @@ import style from  './Dropdown.module.scss'
 
 interface dropdown {
     label:string,
+    fieldName:string,
     options:any,
     isDisabled?:boolean,
     setCategory?:any,
+    onFieldChange:any,
     width?:string,
+    hasError:boolean,
+    errorMessage?:string,
 }
 
 
 
-export default function Dropdown({label,options,isDisabled=false,setCategory=undefined,width='315px'}:dropdown)
+export default function Dropdown({fieldName,label,options,isDisabled=false,setCategory=undefined,width='315px',hasError=false,errorMessage="",onFieldChange}:dropdown)
 {
 
     const customStyles = {
@@ -47,8 +51,11 @@ export default function Dropdown({label,options,isDisabled=false,setCategory=und
 
     return (
         <div style={{width:width}} className={style.col}>
-            <label htmlFor="Category" className={style.labelText}>{label}</label>
-            <Select styles={customStyles}  options={options} isDisabled={isDisabled} onChange={setCategory!=undefined?(e:any)=>setCategory(e.value):()=>{}}></Select>
+            <label htmlFor={fieldName} className={style.labelText}>{label}</label>
+            <Select styles={customStyles}  options={options} isDisabled={isDisabled} onChange={setCategory!=undefined?(e:any)=>{setCategory(e.value); onFieldChange(fieldName,e.value)}:(e:any)=>{onFieldChange(fieldName,e.value)}}></Select>
+            {
+                hasError && <p className={style.error}>{errorMessage}</p>
+            }
         </div>
     )
 }
