@@ -10,7 +10,7 @@ import { useState,useCallback } from "react";
 import * as yup from "yup";
 import {date,object} from "yup"
 import { parse, isDate } from "date-fns";
-import { useRouter } from "next/router";
+import Router,{ useRouter } from "next/router";
 
 function parseDateString(value:Date, originalValue:string) {
   const parsedDate = isDate(originalValue)
@@ -110,9 +110,6 @@ const [modalOpen, setModalOpen] = useState(false);
 
   // fucntion to go to page
 
-  function gotoHome() {
-    router.push('/successfulStudent')
-  }
 
   // Create handler for form submit event:
   const onSubmit = useCallback(
@@ -128,8 +125,8 @@ const [modalOpen, setModalOpen] = useState(false);
 
       if (isFormValid) {
         // If form is valid, continue submission.
-        console.log("vlaid")
-        gotoHome()
+        router.push('/successfulStudent')
+        
       } 
       else {
         // If form is not valid, check which fields are incorrect:
@@ -153,7 +150,7 @@ const [modalOpen, setModalOpen] = useState(false);
         })
       }
     },
-    [values]
+    [router, values]
   )
 
 
@@ -174,5 +171,6 @@ const [modalOpen, setModalOpen] = useState(false);
   );
 })
 
+StudentRegister.displayName='StudentRegister'
 
 export default StudentRegister
