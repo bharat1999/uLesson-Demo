@@ -6,13 +6,13 @@ import style from  './Dropdown.module.scss'
 
 interface dropdown {
     label:string,
-    fieldName:string,
+    fieldName?:string,
     options:any,
     isDisabled?:boolean,
     setCategory?:any,
-    onFieldChange:any,
+    onFieldChange?:any,
     width?:string,
-    hasError:boolean,
+    hasError?:boolean,
     errorMessage?:string,
 }
 

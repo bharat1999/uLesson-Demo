@@ -5,19 +5,19 @@ import style from  './TextInput.module.scss'
 
 interface text {
     label:string,
-    fieldName:string,
+    fieldName?:string,
     type:string,
     width?:string,
-    value:string,
-    onChange:any,
-    hasError:boolean,
+    value?:string,
+    onChange?:any,
+    hasError?:boolean,
     errorMessage?:string,
     readonly?:boolean
 }
 
 
 
-const TextInput = memo(({hasError,fieldName,errorMessage='',type,onChange,label,width="315px",value,readonly=false}:text) => {
+const TextInput = memo(({hasError=false,fieldName='',errorMessage='',type,onChange={},label,width="315px",value='',readonly=false}:text) => {
 
     const handleChange = useCallback(
         (e:any) => {

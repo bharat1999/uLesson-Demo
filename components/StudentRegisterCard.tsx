@@ -54,10 +54,10 @@ export default function StudentRegisterCard(props:card) {
             <div className={style.formContainer}>
                 <div className={style.row}>
                     <div className={style.col}>
-                        <TextInput label='First Name' width='231px'/>
+                        <TextInput label='First Name' width='231px' type='text'/>
                     </div>
                     <div className={style.col}>
-                        <TextInput label='Last Name' width='231px'/>
+                        <TextInput label='Last Name' width='231px' type='text'/>
                     </div>
                     <div className={style.col}>
                         <Dropdown label='Gender' options={gender} width='231px'/>
@@ -78,7 +78,7 @@ export default function StudentRegisterCard(props:card) {
                             <Dropdown label="Class" options={gradeType==''?[]:gradeType=='juniorCategory'?juniorClass:seniorClass} width='231px' isDisabled={gradeType==''?true:false}/>
                         </div>
                         <div className={style.col}>
-                            <TextInput label='uLesson Registered Phone Number' width='231px'/>
+                            <TextInput label='uLesson Registered Phone Number' width='231px' type='text'/>
                         </div>
                     </div>
                 </div>
