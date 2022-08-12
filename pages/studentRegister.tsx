@@ -12,13 +12,7 @@ import {date,object} from "yup"
 import { parse, isDate } from "date-fns";
 import Router,{ useRouter } from "next/router";
 
-function parseDateString(value:Date, originalValue:string) {
-  const parsedDate = isDate(originalValue)
-    ? originalValue
-    : parse(originalValue, "yyyy-MM-dd", new Date());
 
-  return parsedDate;
-}
 
 const today = new Date();
 

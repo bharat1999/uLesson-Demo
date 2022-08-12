@@ -5,7 +5,7 @@ import { useState } from 'react'
 import Dropdown from './Dropdown'
 import TextInput from './TextInput'
 import DateInput from './DateInput'
-import style from './StudentRegisterForm.module.scss'
+import style from './SchoolRegisterForm.module.scss'
 
 interface form {
     values:any,
