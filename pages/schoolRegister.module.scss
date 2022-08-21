@@ -43,6 +43,57 @@
     margin-top: 70px;
 }
 
+.updateBtn {
+    margin-top: 48px;
+    
+    .row {
+        gap:13px;
+    }
+    
+    .btn {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        font-size: 14px;
+        width: 38px;
+        height: 40px;
+        background: #ffffff;
+        color: black;
+        border: 1px solid #E0E7FF;
+    }
+
+    .input {
+        margin: 0;
+        padding-left: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .minus {
+        border-right: none;  
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .plus {
+        border-left: none;  
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+}
+
+.updateBtnContainer {
+    display: flex;
+    margin: 0;
+    height: 40px;
+    gap: 0;
+}
 
 .students {
     margin-top: 48px;

@@ -1,6 +1,7 @@
 
 import { useCallback,useState } from "react";
 import DatePicker from "react-datepicker"
+import {useFormContext,Controller} from "react-hook-form"
 
 import "react-datepicker/dist/react-datepicker.css";
 import style from './DateInput.module.scss'
@@ -19,26 +20,38 @@ interface date {
   label:string,
   fieldName:string,
   width?:string,
-  hasError:boolean,
-  onFieldChange:any,
+  hasError:any,
   errorMessage:string
 }
 
-export default function DateInput({label,fieldName,width="315px",hasError,errorMessage,onFieldChange}:date) {
+export default function DateInput({label,fieldName,width="315px",hasError,errorMessage}:date) {
   const [startDate, setStartDate] = useState<Date | null>(null);
-  const handleChange = useCallback(
-    (e:any) => {
-        onFieldChange(fieldName,e)
-    },
-    [onFieldChange,fieldName]
-)
+  const {control} = useFormContext()
+
 
 
   return (
     <div className={style.col} style={{width:width}}>
             <label  htmlFor={fieldName} className={style.labelText}>{label}</label>
             <div className={style.inputBox}>
-              <DatePicker maxDate={new Date("12-31-2014")} showMonthYearDropdown className={style.input}  selected={startDate} placeholderText="dd/mm/yy" onChange={(date) => {setStartDate(date); handleChange(date)}} />
+              <Controller
+                name={fieldName}
+                control={control}
+                render={({field}) => {
+                  return  (
+                  <DatePicker 
+                    {...field}
+                    maxDate={new Date("12-31-2014")} 
+                    showMonthYearDropdown className={style.input}  
+                    selected={startDate} 
+                    placeholderText="dd/mm/yy" 
+                    onChange={(date) => {
+                      setStartDate(date)
+                      field.onChange(date)
+                    }} />
+                  )
+                }}
+              />  
             </div>
             {
                 hasError && <p className={style.error}>{errorMessage}</p>
