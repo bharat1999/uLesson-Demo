@@ -160,7 +160,7 @@ const gender = [
                 <Dropdown label="Gender" fieldName="gender" options={gender} errorMessage="Please enter a valid gender" hasError={methods.formState.errors.gender}/>
               </div>  
           <div className={style.row}>
-            <DateInput label='Date of Birth' fieldName='dob' hasError={methods.formState.errors.dob} errorMessage="Please enter a valid date of birth"/>
+            <DateInput width="315px" label='Date of Birth' fieldName='dob' hasError={methods.formState.errors.dob} errorMessage="Please enter a valid date of birth"/>
             <Dropdown 
             fieldName='gradeGroup'
               label="Grade Group"
