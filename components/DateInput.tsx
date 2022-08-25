@@ -39,7 +39,7 @@ export default function DateInput({label,fieldName,width="315px",hasError,errorM
             return  (
               <DatePicker 
               {...field}
-                maxDate={new Date("12-31-2014")} 
+                maxDate={new Date("12/31/14")} 
                 showMonthDropdown
                 showYearDropdown
                 onFocus={e => e.target.blur()}
