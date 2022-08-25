@@ -42,6 +42,7 @@ export default function DateInput({label,fieldName,width="315px",hasError,errorM
                 maxDate={new Date("12-31-2014")} 
                 showMonthDropdown
                 showYearDropdown
+                onFocus={e => e.target.blur()}
                 className={style.input}  
                 selected={startDate} 
                 placeholderText="dd/mm/yy" 
