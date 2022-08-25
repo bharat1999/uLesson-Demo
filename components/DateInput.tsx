@@ -40,7 +40,9 @@ export default function DateInput({label,fieldName,width="315px",hasError,errorM
               <DatePicker 
               {...field}
                 maxDate={new Date("12-31-2014")} 
-                showMonthYearDropdown className={style.input}  
+                showMonthDropdown
+                showYearDropdown
+                className={style.input}  
                 selected={startDate} 
                 placeholderText="dd/mm/yy" 
                 onChange={(date) => {

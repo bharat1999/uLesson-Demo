@@ -206,7 +206,7 @@ export default function SchoolRegister() {
                           <div className={style.formContainer}>
                             <div className={style.row}>
                               <TextInput fieldName={`students.[${i}].firstName`} label='First Name' width='231px' type='text' hasError={errors.students?.[i]?.firstName} errorMessage={"Please enter first name"}/>
-                              <TextInput fieldName={`students.[${i}].lastName`} label='Last Name' width='231px' type='text' hasError={errors.students?.[i]?.firstName} errorMessage="Please enter last name"/>
+                              <TextInput fieldName={`students.[${i}].lastName`} label='Last Name' width='231px' type='text' hasError={errors.students?.[i]?.lastName} errorMessage="Please enter last name"/>
                               <Dropdown label='Gender' fieldName={`students.[${i}].gender`} options={gender} width='231px' hasError={errors.students?.[i]?.gender} errorMessage='Please enter a valid gender'/>
                               <DateInput width='231px' label='Date of Birth' fieldName={`students.[${i}].dob`} hasError={errors.students?.[i]?.dob} errorMessage="Please enter a valid date of birth"/>
                             </div>
