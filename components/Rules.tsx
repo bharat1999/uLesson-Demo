@@ -20,9 +20,9 @@ export default function Rules() {
             </div>
             <div className={style.rulesContainer}>
             {
-                data.map((d)=>(
+                data.map((d,key)=>(
                     // eslint-disable-next-line react/jsx-key
-                    <div className={style.rule}>
+                    <div className={style.rule} key={key}>
                         <div className={style.row}> 
                             <div className={style.col}>{tick}</div>
                             <div className={style.col}>

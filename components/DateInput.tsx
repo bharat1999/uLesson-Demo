@@ -54,9 +54,9 @@ export default function DateInput({label,fieldName,width="315px",hasError,errorM
           }}
         />  
       </div>
-      {
-        hasError && <p className={style.error}>{errorMessage}</p>
-      }
+      <div className={hasError?style.show:style.hide}>
+        <p className={style.error}>{errorMessage}</p>
+      </div>
     </div>
   );
 };

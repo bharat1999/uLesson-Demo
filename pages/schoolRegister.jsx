@@ -113,6 +113,27 @@ export default function SchoolRegister() {
     
     const { fields, append, remove } = useFieldArray({ name: 'students',control });
 
+    useEffect(()=>{
+      
+      if(modalOpen==true)
+      {
+        console.log("true")
+        var input = document.getElementsByTagName('form')
+        document.body.style.overflow = "hidden";
+      }
+      else
+      {
+        console.log("false")
+        var input = document.getElementsByTagName('form')
+        document.body.style.overflow = "unset";
+        
+      }
+      return () => {
+        document.body.style.overflow = "unset";
+      }
+  },[modalOpen])
+
+
     useEffect(() => {
       // update field array when ticket number changed
       const newVal = students || 1;
@@ -199,7 +220,7 @@ export default function SchoolRegister() {
                         
                         
                         return (
-                          <div className={style.container}>
+                          <div key={i} className={style.container}>
                           <div className={style.heading}>
                             Student {i+1}
                           </div>

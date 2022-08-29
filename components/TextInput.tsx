@@ -26,9 +26,9 @@ const TextInput = memo(({hasError=false,fieldName='',errorMessage='',type,label,
         <div className={style.col} style={{width:width}}>
             <label  htmlFor={fieldName} className={style.labelText}>{label}</label>
             <input {...register(fieldName)} defaultValue={defaultValue} id='input' className={style.input} type={type} name={fieldName}  readOnly={readonly}/>
-            {
-                hasError && <p className={style.error}>{errorMessage}</p>
-            }
+            <div className={hasError?style.show:style.hide}>
+                <p className={style.error}>{errorMessage}</p>
+            </div>
         </div>
     )
 })

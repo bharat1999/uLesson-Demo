@@ -32,8 +32,8 @@ export default function Stages(props:stage) {
                 </div>
                 <div className={style.data}>
                     {
-                        props.data.map((d)=>(
-                            <div className={style.row}>
+                        props.data.map((d,key)=>(
+                            <div key={key} className={style.row}>
                                 <div className={style.col}>
                                     {dot}
                                 </div>

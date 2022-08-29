@@ -2,7 +2,7 @@
 import style from "./studentRegister.module.scss";
 import RegistrationRules from "../components/RegistrationRules";
 import RegistrationTop from "../components/RegistrationTop";
-import { useState } from "react";
+import { useEffect,useState } from "react";
 import * as yup from "yup";
 import { useForm,FormProvider} from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -13,22 +13,6 @@ import DateInput from "../components/DateInput";
 
 const today = new Date();
 
-// interface FormInputs {
-//   firstName:string,
-//   lastName:string,
-//   gender:{label:string;value:string},
-//   gradeGroup:{label:string;value:string},
-//   category:{label:string;value:string},
-//   class:{label:string;value:string},
-//   dob:Date,
-//   tel:string,
-//   examLocation:{label:string;value:string}
-//   schoolName:string,
-//   schoolLocation:{label:string;value:string},
-//   principalName:string,
-//   principalTel:string,
-//   principalEmail:string
-// }
 
 
 const formSchema = yup.object().shape({
@@ -121,6 +105,36 @@ const gender = [
     resolver:yupResolver(formSchema)
   })
 
+  useEffect(()=>{
+      
+    if(modalOpen==true)
+    {
+      console.log("true")
+      var input = document.getElementsByTagName('input')
+      document.body.style.overflow = "hidden";
+      if(input!=null)
+      {
+        for (var i = 0, len = input.length; i < len; ++i) {
+            input[i].disabled = true;
+        }
+      }
+    }
+    else
+    {
+      console.log("false")
+      var input = document.getElementsByTagName('input')
+      document.body.style.overflow = "unset";
+      if(input!=null)
+      {
+        for (var i = 0, len = input.length; i < len; ++i) {
+            input[i].disabled = false;
+        }
+      }
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    }
+},[modalOpen])
   
 
   const router = useRouter()

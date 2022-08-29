@@ -44,9 +44,9 @@ export default function Benefits() {
             </div>
             <div className={style.awards}>
                 {
-                    prizes.map(p => (
+                    prizes.map((p,key) => (
                         // eslint-disable-next-line react/jsx-key
-                        <AwardCard position={p.position} prize={p.prize} src={p.src} clr={p.clr}/>
+                        <AwardCard key={key} position={p.position} prize={p.prize} src={p.src} clr={p.clr}/>
                     ))
                 }
             </div>

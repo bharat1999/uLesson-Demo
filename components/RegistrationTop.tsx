@@ -16,6 +16,7 @@ interface state {
 export default function RegistrationTop(props:state){
 
 
+
     return (
     <div className={style.body }>
         <div className={style.container}>

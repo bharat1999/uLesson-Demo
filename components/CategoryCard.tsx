@@ -16,9 +16,9 @@ export default function SeniorCard(props:Card)
             </div>
             <div className={style.subjects}>
                 {
-                    props.subjects.map((s) => (
+                    props.subjects.map((s,key) => (
                         // eslint-disable-next-line react/jsx-key
-                        <div>{s}</div>
+                        <div key={key}>{s}</div>
                     ))
                 }
             </div>

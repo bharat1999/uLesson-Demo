@@ -1,6 +1,5 @@
 
 import Select from "react-select"
-import Option from "react-select/dist/declarations/src/components/Option"
 import style from  './Dropdown.module.scss'
 import {useFormContext,Controller} from "react-hook-form"
 
@@ -72,9 +71,9 @@ export default function Dropdown({fieldName,label,options,isDisabled=false,setCa
               )
             }}  
           />
-          {
-            hasError && <p className={style.error}>{errorMessage}</p>
-          }
+          <div className={hasError?style.show:style.hide}>
+            <p className={style.error}>{errorMessage}</p>
+          </div>
       </div>
     )
 }
